@@ -20,11 +20,17 @@ let skate = [{
 }];
 
 let randomIndex;
+let counter = 0;
 
 function setup() {
   createCanvas(400, 400);
   background(220);
   textSize(32);
+
+  text("click to randomize", 50, 50);
+
+  setTimeout(changeBackground, 1000);
+  //setInterval(changeBackground, 1000);
 
 
   //skate[1] ="treflip flip";
@@ -46,17 +52,28 @@ function draw() {
   //square(60, 55, 55);
 }
 
+function changeBackground(){
+ if (counter<= 5){
+   counter++;
+   console.log(counter);
+ background(random(255), random(255), random(255));
+ setTimeout(changeBackground, 1000);
+} else{
+
+}
+}
+
 function mousePressed(){
 
   if (skate[0]){
 
   background(random(200,250));
-  randomIndex = int(random(skate.length))
+  randomIndex = int(random(skate.length));
   //console.log(skate[randomIndex].name);
   text(skate[randomIndex].name, 100, 100);
   skate.splice(randomIndex, 1);
 } else {
   background(random(200,250));
-  text("nothing left!" 50,50)
+  text("nothing left!", 50,50);
 }
 }
