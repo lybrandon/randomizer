@@ -24,6 +24,7 @@ let randomIndex;
 function setup() {
   createCanvas(400, 400);
   background(220);
+  textSize(32);
 
 
   //skate[1] ="treflip flip";
@@ -46,9 +47,16 @@ function draw() {
 }
 
 function mousePressed(){
+
+  if (skate[0]){
+
   background(random(200,250));
   randomIndex = int(random(skate.length))
   //console.log(skate[randomIndex].name);
   text(skate[randomIndex].name, 100, 100);
   skate.splice(randomIndex, 1);
+} else {
+  background(random(200,250));
+  text("nothing left!" 50,50)
+}
 }
